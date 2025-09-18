@@ -1,0 +1,283 @@
+.item-tarefa {
+  background: white;
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.item-tarefa:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+}
+
+.item-tarefa.prioridade-baixa {
+  border-left: 4px solid #28a745;
+}
+
+.item-tarefa.prioridade-media {
+  border-left: 4px solid #ffc107;
+}
+
+.item-tarefa.prioridade-alta {
+  border-left: 4px solid #dc3545;
+}
+
+.conteudo-tarefa {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.checkbox-tarefa {
+  position: relative;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.input-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.label-checkbox {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.input-checkbox:checked + .label-checkbox {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.input-checkbox:checked + .label-checkbox::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.label-checkbox:hover {
+  border-color: #007bff;
+}
+
+.principal-tarefa {
+  flex: 1;
+  min-width: 0;
+}
+
+.visualizacao-tarefa {
+  width: 100%;
+}
+
+.texto-tarefa {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+  word-wrap: break-word;
+  color: #333;
+}
+
+.texto-tarefa.concluida {
+  text-decoration: line-through;
+  color: #999;
+  opacity: 0.7;
+}
+
+.meta-tarefa {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.prioridade-tarefa {
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 0.5px;
+}
+
+.prioridade-baixa .prioridade-tarefa {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.prioridade-media .prioridade-tarefa {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.prioridade-alta .prioridade-tarefa {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.data-tarefa {
+  color: #666;
+  font-style: italic;
+}
+
+.edicao-tarefa {
+  width: 100%;
+}
+
+.input-edicao {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  outline: none;
+}
+
+.input-edicao:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+}
+
+.acoes-edicao {
+  display: flex;
+  gap: 8px;
+}
+
+.acoes-tarefa {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.selecao-prioridade {
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+  cursor: pointer;
+  outline: none;
+}
+
+.selecao-prioridade:focus {
+  border-color: #007bff;
+}
+
+.selecao-prioridade:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-editar {
+  background-color: #17a2b8;
+  color: white;
+  border: 1px solid #17a2b8;
+}
+
+.btn-editar:hover:not(:disabled) {
+  background-color: #138496;
+  border-color: #117a8b;
+}
+
+.btn-excluir {
+  background-color: #dc3545;
+  color: white;
+  border: 1px solid #dc3545;
+}
+
+.btn-excluir:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.btn-salvar {
+  background-color: #28a745;
+  color: white;
+  border: 1px solid #28a745;
+}
+
+.btn-salvar:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.btn-cancelar {
+  background-color: #6c757d;
+  color: white;
+  border: 1px solid #6c757d;
+}
+
+.btn-cancelar:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+.item-tarefa .principal-tarefa.concluida {
+  opacity: 0.7;
+}
+
+.item-tarefa .principal-tarefa.concluida .texto-tarefa {
+  text-decoration: line-through;
+}
+
+@media (max-width: 600px) {
+  .conteudo-tarefa {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .acoes-tarefa {
+    align-self: flex-end;
+  }
+  
+  .meta-tarefa {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .acoes-edicao {
+    flex-direction: column;
+  }
+}

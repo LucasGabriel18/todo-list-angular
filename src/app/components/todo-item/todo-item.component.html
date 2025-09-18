@@ -1,0 +1,53 @@
+<div class="item-tarefa" [class]="obterClassePrioridade()">
+    <div class="conteudo-tarefa">
+        <div class="checkbox-tarefa">
+            <input type="checkbox" [checked]="tarefa.concluida" (change)="aoAlternar()" [id]="'tarefa-' + tarefa.id"
+                class="input-checkbox">
+            <label [for]="'tarefa-' + tarefa.id" class="label-checkbox"></label>
+        </div>
+
+        <div class="principal-tarefa" [class.concluida]="tarefa.concluida">
+            @if (!estaEditando()) {
+            <div class="visualizacao-tarefa">
+                <span class="texto-tarefa" [class.concluida]="tarefa.concluida">
+                    {{ tarefa.texto }}
+                </span>
+                <div class="meta-tarefa">
+                    <span class="prioridade-tarefa">{{ (tarefa.prioridade || 'media').toUpperCase() }}</span>
+                    <span class="data-tarefa">{{ formatarData(tarefa.criadaEm) }}</span>
+                </div>
+            </div>
+            }
+
+            @if (estaEditando()) {
+            <div class="edicao-tarefa">
+                <input type="text" [(ngModel)]="textoEdicao" (keydown)="aoTeclarEnter($event)" class="input-edicao"
+                    placeholder="Digite o texto da tarefa..." autofocus>
+                <div class="acoes-edicao">
+                    <button (click)="salvarEdicao()" class="btn btn-salvar">Salvar</button>
+                    <button (click)="cancelarEdicao()" class="btn btn-cancelar">Cancelar</button>
+                </div>
+            </div>
+            }
+        </div>
+
+        @if (!estaEditando()) {
+        <div class="acoes-tarefa">
+            <select [value]="tarefa.prioridade || 'media'" (change)="aoMudarPrioridade($any($event.target).value)"
+                class="selecao-prioridade" [disabled]="tarefa.concluida">
+                <option value="baixa">Baixa</option>
+                <option value="media">Média</option>
+                <option value="alta">Alta</option>
+            </select>
+
+            <button (click)="iniciarEdicao()" class="btn btn-editar" [disabled]="tarefa.concluida"
+                title="Editar tarefa">
+                ✏️
+            </button>
+            <button (click)="aoExcluir()" class="btn btn-excluir" title="Excluir tarefa">
+                🗑️
+            </button>
+        </div>
+        }
+    </div>
+</div>

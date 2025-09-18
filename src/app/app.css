@@ -1,0 +1,72 @@
+.container-home {    
+    display: flex;    
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 0 0 20px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.titulo-todo-list {
+    font-size: 48px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    color: white;     
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: -1px;
+}
+
+.titulo-lista-tarefas {
+    font-size: 24px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    color: #333; 
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.conteudo-home {    
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .titulo-todo-list {
+        font-size: 36px;
+        padding: 15px;
+    }
+    
+    .conteudo-home {
+        margin: 0 10px;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo-todo-list {
+        font-size: 28px;
+        padding: 10px;
+    }
+    
+    .titulo-lista-tarefas {
+        font-size: 20px;
+    }
+    
+    .container-home {
+        padding: 10px 0;
+    }
+}
