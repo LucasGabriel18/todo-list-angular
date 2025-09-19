@@ -4,77 +4,12 @@
   padding: 20px;
 }
 
-.cabecalho-tarefas {
-  margin-bottom: 30px;
-}
-
-.estatisticas {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.item-estatistica {
-  background: white;
-  padding: 16px 24px;
-  border-radius: 12px;
-  border: 1px solid #e1e5e9;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease;
-}
-
 .item-estatistica:hover {
   transform: translateY(-2px);
 }
 
 .numero-estatistica {
-  display: block;
-  font-size: 32px;
-  font-weight: bold;
-  color: #007bff;
   line-height: 1;
-}
-
-.label-estatistica {
-  display: block;
-  font-size: 14px;
-  color: #666;
-  margin-top: 4px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.texto-progresso {
-  font-size: 14px;
-  color: #666;
-  font-weight: 500;
-}
-
-.formulario-adicionar-tarefa {
-  background: white;
-  padding: 24px;
-  border-radius: 12px;
-  border: 1px solid #e1e5e9;
-  margin-bottom: 24px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.grupo-input {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.input-tarefa {
-  flex: 1;
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.3s ease;
 }
 
 .input-tarefa:focus {
@@ -82,37 +17,9 @@
   box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
 }
 
-.input-tarefa::placeholder {
-  color: #999;
-}
-
-.selecao-prioridade {
-  padding: 12px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-  background: white;
-  cursor: pointer;
-  outline: none;
-  min-width: 120px;
-}
-
 .selecao-prioridade:focus {
   border-color: #007bff;
   box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
-}
-
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border: 1px solid transparent;
 }
 
 .btn:hover {
@@ -126,129 +33,20 @@
   min-width: 120px;
 }
 
-.filtros {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-.btn-filtro {
-  background: white;
-  color: #666;
-  border: 1px solid #ddd;
-  padding: 8px 16px;
-  font-size: 13px;
-}
-
-.btn-filtro:hover {
-  background: #f8f9fa;
-  border-color: #007bff;
-  color: #007bff;
-}
-
 .btn-filtro.ativo {
-  background: #007bff;
-  color: white;
-  border-color: #007bff;
+  background: #007bff !important;
+  color: white !important;
+  border-color: #007bff !important;
 }
 
-.lista-tarefas {
-  margin-bottom: 30px;
+.item-tarefa.prioridade-baixa {
+  border-left: 4px solid #28a745;
 }
 
-.estado-vazio {
-  text-align: center;
-  padding: 60px 20px;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e1e5e9;
-  margin-bottom: 30px;
+.item-tarefa.prioridade-media {
+  border-left: 4px solid #ffc107;
 }
 
-.icone-vazio {
-  font-size: 64px;
-  margin-bottom: 16px;
-  opacity: 0.7;
-}
-
-.estado-vazio h3 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.estado-vazio p {
-  font-size: 16px;
-  color: #666;
-  margin: 0;
-  line-height: 1.5;
-}
-
-@media (max-width: 768px) {
-  .container-lista-tarefas {
-    padding: 16px;
-  }
-  
-  .estatisticas {
-    flex-direction: column;
-    gap: 12px;
-  }
-  
-  .item-estatistica {
-    padding: 12px 16px;
-  }
-  
-  .numero-estatistica {
-    font-size: 24px;
-  }
-  
-  .grupo-input {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .input-tarefa, .selecao-prioridade, .btn-adicionar {
-    width: 100%;
-  }
-  
-  .filtros {
-    justify-content: stretch;
-  }
-  
-  .btn-filtro {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .acoes-lote {
-    flex-direction: column;
-  }
-  
-  .btn-lote {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .formulario-adicionar-tarefa {
-    padding: 16px;
-  }
-  
-  .estado-vazio {
-    padding: 40px 16px;
-  }
-  
-  .icone-vazio {
-    font-size: 48px;
-  }
-  
-  .estado-vazio h3 {
-    font-size: 20px;
-  }
-  
-  .estado-vazio p {
-    font-size: 14px;
-  }
+.item-tarefa.prioridade-alta {
+  border-left: 4px solid #dc3545;
 }
