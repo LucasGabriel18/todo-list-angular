@@ -88,7 +88,6 @@
   font-size: 16px;
   line-height: 1.4;
   margin-bottom: 8px;
-  word-wrap: break-word;
   color: #333;
 }
 
@@ -191,7 +190,6 @@
   cursor: pointer;
   font-size: 12px;
   font-weight: 500;
-  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -213,11 +211,6 @@
   background-color: #17a2b8;
   color: white;
   border: 1px solid #17a2b8;
-}
-
-.btn-editar:hover:not(:disabled) {
-  background-color: #138496;
-  border-color: #117a8b;
 }
 
 .btn-excluir {

@@ -87,24 +87,6 @@ export class ComponenteListaTarefas {
     this.filtro.set(filtro);
   }
 
-  marcarTodasComoConcluidas(): void {
-    if (confirm('Marcar todas as tarefas como concluídas?')) {
-      this.servicoTarefa.marcarTodasComoConcluidas();
-    }
-  }
-
-  excluirTodasConcluidas(): void {
-    if (confirm('Excluir todas as tarefas concluídas?')) {
-      this.servicoTarefa.excluirTodasConcluidas();
-    }
-  }
-
-  limparTodasTarefas(): void {
-    if (confirm('Excluir todas as tarefas? Esta ação não pode ser desfeita.')) {
-      this.servicoTarefa.limparTodasTarefas();
-    }
-  }
-
   aoTeclarEnter(evento: KeyboardEvent): void {
     if (evento.key === 'Enter') {
       this.adicionarTarefa();
@@ -113,12 +95,6 @@ export class ComponenteListaTarefas {
 
   obterClasseFiltro(tipoFiltro: 'todas' | 'pendentes' | 'concluidas'): string {
     return this.filtro() === tipoFiltro ? 'ativo' : '';
-  }
-
-  obterPorcentagemProgresso(): number {
-    const total = this.contadorTotal();
-    if (total === 0) return 0;
-    return Math.round((this.contadorConcluidas() / total) * 100);
   }
 
   rastrearPorIdTarefa(indice: number, tarefa: Tarefa): number {

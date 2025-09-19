@@ -46,25 +46,6 @@
   letter-spacing: 0.5px;
 }
 
-.container-progresso {
-  text-align: center;
-}
-
-.barra-progresso {
-  height: 8px;
-  background-color: #e9ecef;
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.preenchimento-progresso {
-  height: 100%;
-  background: linear-gradient(90deg, #28a745, #20c997);
-  transition: width 0.3s ease;
-  border-radius: 4px;
-}
-
 .texto-progresso {
   font-size: 14px;
   color: #666;
@@ -113,7 +94,6 @@
   background: white;
   cursor: pointer;
   outline: none;
-  transition: border-color 0.3s ease;
   min-width: 120px;
 }
 
@@ -140,21 +120,10 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
 .btn-adicionar {
   background: linear-gradient(135deg, #007bff, #0056b3);
   color: white;
   min-width: 120px;
-}
-
-.btn-adicionar:hover:not(:disabled) {
-  background: linear-gradient(135deg, #0056b3, #004085);
 }
 
 .filtros {
@@ -162,7 +131,6 @@
   gap: 8px;
   justify-content: center;
   margin-bottom: 24px;
-  flex-wrap: wrap;
 }
 
 .btn-filtro {
@@ -216,37 +184,6 @@
   color: #666;
   margin: 0;
   line-height: 1.5;
-}
-
-.acoes-lote {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 24px;
-  background: white;
-  border-radius: 12px;
-  border: 1px solid #e1e5e9;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.btn-lote {
-  background: #6c757d;
-  color: white;
-  font-size: 12px;
-  padding: 10px 20px;
-}
-
-.btn-lote:hover:not(:disabled) {
-  background: #5a6268;
-}
-
-.btn-lote.btn-perigo {
-  background: #dc3545;
-}
-
-.btn-lote.btn-perigo:hover:not(:disabled) {
-  background: #c82333;
 }
 
 @media (max-width: 768px) {
