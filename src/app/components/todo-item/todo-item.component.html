@@ -1,50 +1,50 @@
-<div class="item-tarefa" [class]="obterClassePrioridade()">
-    <div class="conteudo-tarefa">
-        <div class="checkbox-tarefa">
+<div class="item-tarefa d-flex mb-3 p-3" [class]="obterClassePrioridade()">
+    <div class="conteudo-tarefa d-flex w-100">
+        <div class="checkbox-tarefa me-3">
             <input type="checkbox" [checked]="tarefa.concluida" (change)="aoAlternar()" [id]="'tarefa-' + tarefa.id"
-                class="input-checkbox">
+                class="input-checkbox form-check-input">
             <label [for]="'tarefa-' + tarefa.id" class="label-checkbox"></label>
         </div>
 
-        <div class="principal-tarefa" [class.concluida]="tarefa.concluida">
+        <div class="principal-tarefa flex-grow-1" [class.concluida]="tarefa.concluida">
             @if (!estaEditando()) {
             <div class="visualizacao-tarefa">
-                <span class="texto-tarefa" [class.concluida]="tarefa.concluida">
+                <span class="texto-tarefa d-block" [class.concluida]="tarefa.concluida">
                     {{ tarefa.texto }}
                 </span>
-                <div class="meta-tarefa">
-                    <span class="prioridade-tarefa">{{ (tarefa.prioridade || 'media').toUpperCase() }}</span>
-                    <span class="data-tarefa">{{ formatarData(tarefa.criadaEm) }}</span>
+                <div class="meta-tarefa d-flex gap-2 mt-1">
+                    <span class="prioridade-tarefa badge">{{ (tarefa.prioridade || 'media').toUpperCase() }}</span>
+                    <span class="data-tarefa small text-muted">{{ formatarData(tarefa.criadaEm) }}</span>
                 </div>
             </div>
             }
 
             @if (estaEditando()) {
             <div class="edicao-tarefa">
-                <input type="text" [(ngModel)]="textoEdicao" (keydown)="aoTeclarEnter($event)" class="input-edicao"
+                <input type="text" [(ngModel)]="textoEdicao" (keydown)="aoTeclarEnter($event)" class="input-edicao form-control mb-2"
                     placeholder="Digite o texto da tarefa..." autofocus>
-                <div class="acoes-edicao">
-                    <button (click)="salvarEdicao()" class="btn btn-salvar">Salvar</button>
-                    <button (click)="cancelarEdicao()" class="btn btn-cancelar">Cancelar</button>
+                <div class="acoes-edicao d-flex gap-2">
+                    <button (click)="salvarEdicao()" class="btn btn-success btn-sm">Salvar</button>
+                    <button (click)="cancelarEdicao()" class="btn btn-secondary btn-sm">Cancelar</button>
                 </div>
             </div>
             }
         </div>
 
         @if (!estaEditando()) {
-        <div class="acoes-tarefa">
+        <div class="acoes-tarefa d-flex align-items-start gap-2">
             <select [value]="tarefa.prioridade || 'media'" (change)="aoMudarPrioridade($any($event.target).value)"
-                class="selecao-prioridade" [disabled]="tarefa.concluida">
+                class="selecao-prioridade form-select form-select-sm" [disabled]="tarefa.concluida" style="width: auto;">
                 <option value="baixa">Baixa</option>
                 <option value="media">Média</option>
                 <option value="alta">Alta</option>
             </select>
 
-            <button (click)="iniciarEdicao()" class="btn btn-editar" [disabled]="tarefa.concluida"
+            <button (click)="iniciarEdicao()" class="btn btn-editar btn-outline-primary btn-sm" [disabled]="tarefa.concluida"
                 title="Editar tarefa">
                 ✏️
             </button>
-            <button (click)="aoExcluir()" class="btn btn-excluir" title="Excluir tarefa">
+            <button (click)="aoExcluir()" class="btn btn-excluir btn-outline-danger btn-sm" title="Excluir tarefa">
                 🗑️
             </button>
         </div>

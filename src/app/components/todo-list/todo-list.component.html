@@ -1,48 +1,54 @@
-<div class="container-lista-tarefas">
-    <div class="cabecalho-tarefas">
-        <div class="estatisticas">
-            <div class="item-estatistica">
-                <span class="numero-estatistica">{{ contadorTotal() }}</span>
-                <span class="label-estatistica">Total</span>
-            </div>
-            <div class="item-estatistica">
-                <span class="numero-estatistica">{{ contadorPendentes() }}</span>
-                <span class="label-estatistica">Pendentes</span>
-            </div>
-            <div class="item-estatistica">
-                <span class="numero-estatistica">{{ contadorConcluidas() }}</span>
-                <span class="label-estatistica">Concluídas</span>
+<div class="container-lista-tarefas container-fluid">
+    <div class="cabecalho-tarefas card mb-4">
+        <div class="card-body">
+            <div class="estatisticas d-flex justify-content-around">
+                <div class="item-estatistica text-center">
+                    <span class="numero-estatistica h3 text-primary d-block">{{ contadorTotal() }}</span>
+                    <span class="label-estatistica text-muted">Total</span>
+                </div>
+                <div class="item-estatistica text-center">
+                    <span class="numero-estatistica h3 text-warning d-block">{{ contadorPendentes() }}</span>
+                    <span class="label-estatistica text-muted">Pendentes</span>
+                </div>
+                <div class="item-estatistica text-center">
+                    <span class="numero-estatistica h3 text-success d-block">{{ contadorConcluidas() }}</span>
+                    <span class="label-estatistica text-muted">Concluídas</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="formulario-adicionar-tarefa">
-        <div class="grupo-input">
-            <input type="text" [(ngModel)]="textoNovaTarefa" (keydown)="aoTeclarEnter($event)"
-                placeholder="Digite uma nova tarefa..." class="input-tarefa" maxlength="200">
+    <div class="formulario-adicionar-tarefa card mb-4">
+        <div class="card-body">
+            <div class="grupo-input d-flex gap-2">
+                <input type="text" [(ngModel)]="textoNovaTarefa" (keydown)="aoTeclarEnter($event)"
+                    placeholder="Digite uma nova tarefa..." class="input-tarefa form-control flex-grow-1" maxlength="200">
 
-            <select [(ngModel)]="prioridadeNovaTarefa" class="selecao-prioridade">
-                <option value="baixa">Baixa</option>
-                <option value="media">Média</option>
-                <option value="alta">Alta</option>
-            </select>
+                <select [(ngModel)]="prioridadeNovaTarefa" class="selecao-prioridade form-select" style="width: auto;">
+                    <option value="baixa">Baixa</option>
+                    <option value="media">Média</option>
+                    <option value="alta">Alta</option>
+                </select>
 
-            <button (click)="adicionarTarefa()" [disabled]="!textoNovaTarefa().trim()" class="btn btn-adicionar">
-                Adicionar
+                <button (click)="adicionarTarefa()" [disabled]="!textoNovaTarefa().trim()" class="btn btn-adicionar btn-primary">
+                    Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="filtros mb-4">
+        <div class="btn-group w-100" role="group">
+            <button (click)="definirFiltro('todas')" [class]="'btn btn-filtro btn-outline-secondary ' + obterClasseFiltro('todas')">
+                Todas ({{ contadorTotal() }})
+            </button>
+            <button (click)="definirFiltro('pendentes')" [class]="'btn btn-filtro btn-outline-warning ' + obterClasseFiltro('pendentes')">
+                Pendentes ({{ contadorPendentes() }})
+            </button>
+            <button (click)="definirFiltro('concluidas')" [class]="'btn btn-filtro btn-outline-success ' + obterClasseFiltro('concluidas')">
+                Concluídas ({{ contadorConcluidas() }})
             </button>
         </div>
-    </div>
-
-    <div class="filtros">
-        <button (click)="definirFiltro('todas')" [class]="'btn btn-filtro ' + obterClasseFiltro('todas')">
-            Todas ({{ contadorTotal() }})
-        </button>
-        <button (click)="definirFiltro('pendentes')" [class]="'btn btn-filtro ' + obterClasseFiltro('pendentes')">
-            Pendentes ({{ contadorPendentes() }})
-        </button>
-        <button (click)="definirFiltro('concluidas')" [class]="'btn btn-filtro ' + obterClasseFiltro('concluidas')">
-            Concluídas ({{ contadorConcluidas() }})
-        </button>
     </div>
 
     @if (tarefasOrdenadas().length > 0) {
@@ -54,10 +60,12 @@
         }
     </div>
     } @else {
-    <div class="estado-vazio">
-        <div class="icone-vazio">📝</div>
-        <h3>{{ obterTituloEstadoVazio() }}</h3>
-        <p>{{ obterMensagemEstadoVazio() }}</p>
+    <div class="estado-vazio card text-center">
+        <div class="card-body py-5">
+            <div class="icone-vazio display-1 mb-3">📝</div>
+            <h3 class="card-title">{{ obterTituloEstadoVazio() }}</h3>
+            <p class="card-text text-muted">{{ obterMensagemEstadoVazio() }}</p>
+        </div>
     </div>
     }    
 </div>
